@@ -9,9 +9,9 @@ app.use(cors());
 app.use(express.json());
 
 // Routes
-app.get('/', (req, res) => {
-  res.send('Hello World!');
-});
+app.use("/", require("./routes/index"));
+
+// Koppla till databasen
 
 // Start the server
 app.listen(port, () => {
