@@ -1,9 +1,8 @@
 import { useState } from 'react';
 import './App.css';
-import {MapView} from "./components/MapView/MapView";
+import { MapView } from "./components/MapView/MapView";
 
 function App() {
-
   const [activeOverlay, setActiveOverlay] = useState(null); //för att styra vilken vy man är i
 
   return (
