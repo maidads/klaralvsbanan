@@ -1,7 +1,11 @@
 import "./MapView.css";
 
 function MapView() {
-    return ();
+    return (
+        <div>
+            Map View Component
+        </div>
+    );
 }
 
 export default MapView;

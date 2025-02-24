@@ -1,7 +1,9 @@
 import "./SettingsPanel.css";
 
 function SettingsPanel() {
-    return ();
+    return ( <div>
+        SettingsPanel Component
+    </div>);
 }
 
 export default SettingsPanel;
