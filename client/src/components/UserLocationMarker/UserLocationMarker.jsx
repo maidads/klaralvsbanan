@@ -1,7 +1,9 @@
 import "./UserLocationMarker.css";
 
 function UserLocationMarker() {
-    return ();
+    return ( <div>
+        UseLocation Component
+    </div>);
 }
 
 export default UserLocationMarker;

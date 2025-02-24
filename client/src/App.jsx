@@ -1,6 +1,5 @@
 import { useState } from 'react';
-import './App.css';
-import {MapView} from "./components/MapView/MapView";
+import MapView from "./components/MapView/MapView.jsx";
 
 function App() {
 
@@ -19,7 +18,7 @@ function App() {
         <div className="overlay-view">{activeOverlay}</div>
       </main>
       <footer>
-        <img src="" alt="" />
+        <img />
         <button>Sök</button>
         <button>Filter</button>
         <button>Meny</button>

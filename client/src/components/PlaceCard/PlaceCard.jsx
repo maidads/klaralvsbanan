@@ -1,7 +1,9 @@
 import "./PlaceCard.css";
 
 function PlaceCard() {
-    return ();
+    return ( <div>
+        Placecard Component
+    </div>);
 }
 
 export default PlaceCard;

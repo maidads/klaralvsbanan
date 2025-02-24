@@ -1,7 +1,9 @@
 import "./NavDesktop.css";
 
 function NavDesktop() {
-    return ();
+    return ( <div>
+        NavDesktop Component
+    </div>);
 }
 
 export default NavDesktop;

@@ -1,7 +1,9 @@
 import "./NavMobile.css";
 
 function NavMobile() {
-    return ();
+    return ( <div>
+        NavMobile Component
+    </div>);
 }
 
 export default NavMobile;

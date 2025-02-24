@@ -1,7 +1,11 @@
 import "./ErrorToast.css";
 
 function ErrorToast() {
-    return ();
+    return (
+    <div>
+        NavDesktop Component
+    </div>
+    );
 }
 
 export default ErrorToast;

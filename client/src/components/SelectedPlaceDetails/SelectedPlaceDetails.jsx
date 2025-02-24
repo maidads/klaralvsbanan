@@ -1,7 +1,10 @@
 import "./SelectedPlaceDetails.css";
 
 function SelectedPlaceDetails(place) {
-    return (
+    return ( 
+    <div>
+        Selected place details Component
+    </div>
     );
 }
 

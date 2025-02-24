@@ -1,7 +1,9 @@
 import "./PlaceMarker.css";
 
 function PlaceMarker() {
-    return ();
+    return ( <div>
+        Place marker Component
+    </div>);
 }
 
 export default PlaceMarker;
