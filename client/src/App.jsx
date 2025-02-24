@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import MapView from "./components/MapView/MapView.jsx";
+import MapViewReact from "./components/MapView/MapView.jsx";
 
 function App() {
 
@@ -8,7 +8,7 @@ function App() {
   return (
     <>
       <main>
-        <MapView></MapView>
+        <MapViewReact></MapViewReact>
         <aside>
           <button className='enlarge-map-btn'></button>
           <button className='center-btn'></button>
