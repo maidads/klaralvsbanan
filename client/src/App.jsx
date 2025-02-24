@@ -18,7 +18,7 @@ function App() {
         <div className="overlay-view">{activeOverlay}</div>
       </main>
       <footer>
-        <img src="" alt="" />
+        <img />
         <button>Sök</button>
         <button>Filter</button>
         <button>Meny</button>
