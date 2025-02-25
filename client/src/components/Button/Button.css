@@ -1,1 +1,14 @@
-/* Initial */
+.mainButton {
+
+    width: 135px;
+    height: 48.382px;
+    border-radius: 5px;
+    background: var(--Vrmland-Color, #08443C);
+    color: white;
+    border: none;
+
+}
+
+.mainButton__icon {
+    margin-right: 10px;
+}
