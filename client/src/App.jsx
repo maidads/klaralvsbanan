@@ -15,7 +15,7 @@ function App() {
   }, []);
 
   const [activeOverlay, setActiveOverlay] = useState(null); //för att styra vilken vy man är i
-
+  
   return (
     <>
       <main>
