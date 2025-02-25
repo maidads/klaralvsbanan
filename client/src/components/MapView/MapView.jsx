@@ -64,8 +64,8 @@ const MapViewReact = ({ turidData }) => {
     }, [turidData]);
 
     return (
-        <div style={{position: "relative", height: "400px", width: "100%"}}>
-            <MapContainer center={position} zoom={13} style={{ height: '400px', width: '100%' }}>
+        <div style={{position: "relative", height: "100vh", width: "100vw"}}>
+            <MapContainer center={position} zoom={13} style={{ height: '100%', width: '100%' }}>
             <ChangeView position={position} />
             <TileLayer
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
