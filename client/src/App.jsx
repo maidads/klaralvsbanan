@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import MapViewReact from "./components/MapView/MapView.jsx";
 import { getAllTuridData } from './utils/apis/turid.js';
+import NavDesktop from './components/NavDesktop/NavDesktop'
 
 function App() {
 
@@ -28,14 +29,7 @@ function App() {
         </aside>
         <div className="overlay-view">{activeOverlay}</div>
       </main>
-      <footer>
-        <img />
-        <button>Sök</button>
-        <button>Filter</button>
-        <button>Meny</button>
-        <button>Dela</button>
-        <button>Route</button>
-      </footer>
+      < NavDesktop />
     </>
   );
 }
