@@ -2,7 +2,9 @@ import { useState } from 'react';
 import MapViewReact from "./components/MapView/MapView.jsx";
 
 function App() {
+
   const [activeOverlay, setActiveOverlay] = useState(null); //för att styra vilken vy man är i
+  
   return (
     <>
       <main>
