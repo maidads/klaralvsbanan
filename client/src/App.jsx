@@ -1,7 +1,5 @@
 import { useState } from 'react';
 import MapViewReact from "./components/MapView/MapView.jsx";
-import Button from "./components/Button/Button.jsx";
-import PlayIcon from "./assets/icons/play-outline.svg";
 
 function App() {
   const [activeOverlay, setActiveOverlay] = useState(null); //för att styra vilken vy man är i
@@ -9,7 +7,7 @@ function App() {
   return (
     <>
       <main>
-        <MapViewReact />
+      <MapViewReact></MapViewReact>
         <aside>
           <button className='enlarge-map-btn'></button>
           <button className='center-btn'></button>
