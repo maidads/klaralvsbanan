@@ -1,8 +1,9 @@
 import leaflet from 'leaflet';
-import { MapContainer, TileLayer, useMap } from 'react-leaflet';
+import { MapContainer, TileLayer, useMap, Marker, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import "./MapView.css";
 import { useEffect, useRef, useState } from 'react';
+import { filterOutPlaces } from '../../utils/apis/turid';
 
 function MapView() {
 
@@ -40,7 +41,7 @@ const ChangeView = ({ position }) => {
     return null
 }
 
-const MapViewReact = () => {
+const MapViewReact = ({ turidData }) => {
     const [position, setPosition] = useState([59.3793, 13.5036]);
 
     useEffect(() => {
@@ -54,6 +55,14 @@ const MapViewReact = () => {
         );
     }, []);
 
+    const [places, setPlaces] = useState(null);
+
+    useEffect(() => {
+        if (turidData) {
+            setPlaces(filterOutPlaces(turidData));
+        }
+    }, [turidData]);
+
     return (
         <div style={{position: "relative", height: "400px", width: "100%"}}>
             <MapContainer center={position} zoom={13} style={{ height: '400px', width: '100%' }}>
@@ -62,6 +71,13 @@ const MapViewReact = () => {
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                 attribution="&copy; <a href='https://www.openstreetmap.org/copyright'>OpenStreetMap</a> contributors"
             />
+            {places && places.map(place => (
+                place.latitude && place.longitude ? (
+                    <Marker key={place.id} position={[place.latitude, place.longitude]}>
+                        <Popup>{place.title}</Popup>
+                    </Marker>
+                ) : null
+            ))}
             </MapContainer>
         </div>
     );
