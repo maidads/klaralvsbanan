@@ -7,7 +7,7 @@ export const getAllTuridData = async () => {
     let pages = data.data;
     if (data.total_pages != 1) {
         const pageRequests = [];
-        for (let i = 2; i < data.total_pages; i++) {
+        for (let i = 2; i < data.total_pages+1; i++) {
             pageRequests.push(fetch(`${BASE_URL}/products?publication=Klarälvsbanan&limit=50&page=${i}`)
             .then(res => res.json()));
         }
@@ -32,6 +32,21 @@ export const getTuridDataByPosition = async (lat, lng, radius) => {
         pages = pages.concat(...otherPages.map(page => page.data));
     }
     return pages;
+}
+
+//turid GET ger en array av "produkter" med varsin array av platser; funktion för att filtrera ut dem
+export const filterOutPlaces = (data) => {
+    let places = [];
+    data.forEach(item => {
+        item.places.forEach(place => {
+            places.push(place);
+        })
+    });
+    places = places.filter((() => {
+        const uniqueIds = new Set();
+        return place => !uniqueIds.has(place.id) && uniqueIds.add(place.id);
+    })());
+    return places;
 }
 
 
