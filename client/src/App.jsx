@@ -52,7 +52,7 @@ function App() {
           <section className='footer-menus-container'>
             {isMobile ? (
               <>
-                <div className='mobile-footer'>
+                <div className='logo-button-container-mobile'>
                   <button>Sök</button>
                   <img className='logo' src={logo} alt="logo" />
                   <button>Route</button>
@@ -60,11 +60,11 @@ function App() {
               </>
             ) : (
               <>
-                <div>
+                <div className='logo-button-container-desktop'>
                   <div>
                     <img className='logo' src={logo} alt="logo" />
                   </div>
-                  <div>
+                  <div className='footer-buttons-container'>
                     <button>Sök</button>
                     <button>Filter</button>
                     <button>Meny</button>
@@ -82,53 +82,3 @@ function App() {
 }
 
 export default App;
-
-
-
-
-
-
-//original
-/*import { useEffect, useState } from 'react';
-import MapViewReact from "./components/MapView/MapView.jsx";
-import { getAllTuridData } from './utils/apis/turid.js';
-
-function App() {
-
-  const [turidData, setTuridData] = useState(null);
-
-  useEffect(() => {
-    const getData = async () => {
-      const data = await getAllTuridData();
-      setTuridData(data);
-    }
-    getData();
-  }, []);
-
-  const [activeOverlay, setActiveOverlay] = useState(null); //för att styra vilken vy man är i
-  
-  return (
-    <>
-      <main>
-        <MapViewReact turidData={turidData}></MapViewReact>
-        <aside>
-          <button className='enlarge-map-btn'></button>
-          <button className='center-btn'></button>
-          <button className='zoom-in-btn'></button>
-          <button className='zoom-out-btn'></button>
-        </aside>
-        <div className="overlay-view">{activeOverlay}</div>
-      </main>
-      <footer>
-        <img />
-        <button>Sök</button>
-        <button>Filter</button>
-        <button>Meny</button>
-        <button>Dela</button>
-        <button>Route</button>
-      </footer>
-    </>
-  );
-}
-
-export default App;*/
