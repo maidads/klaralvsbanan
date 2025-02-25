@@ -3,11 +3,10 @@ import MapViewReact from "./components/MapView/MapView.jsx";
 
 function App() {
   const [activeOverlay, setActiveOverlay] = useState(null); //för att styra vilken vy man är i
-
   return (
     <>
       <main>
-      <MapViewReact></MapViewReact>
+        <MapViewReact></MapViewReact>
         <aside>
           <button className='enlarge-map-btn'></button>
           <button className='center-btn'></button>
