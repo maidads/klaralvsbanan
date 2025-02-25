@@ -20,7 +20,7 @@ function App() {
       </main>
       <footer>
         <img />
-        <Button text="Sök" icon={PlayIcon} />
+        <button>Sök</button>
         <button>Filter</button>
         <button>Meny</button>
         <button>Dela</button>
