@@ -52,15 +52,15 @@ export const filterOutPlaces = (data) => {
 
 //om inte koordinatanropet vill funka kan man hämta allt och sedan filtrera lokalt
 export const isWithinRange = (coordinates, userCoordinates, radius) => {
-    const R = 6371;
+    const R = 6371000;
     const toRad = (deg) => (deg * Math.PI) / 180;
 
-    const dLat = toRad(userCoordinates.lat - coordinates.lat);
-    const dLon = toRad(userCoordinates.lng - coordinates.lng);
+    const dLat = toRad(userCoordinates[0] - coordinates[0]);
+    const dLon = toRad(userCoordinates[1] - coordinates[1]);
 
     const a =
         Math.sin(dLat / 2) * Math.sin(dLat / 2) +
-        Math.cos(toRad(coordinates.lat)) * Math.cos(toRad(userCoordinates.lat)) *
+        Math.cos(toRad(coordinates[0])) * Math.cos(toRad(userCoordinates[0])) *
         Math.sin(dLon / 2) * Math.sin(dLon / 2);
 
     const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));

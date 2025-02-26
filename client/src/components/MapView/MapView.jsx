@@ -3,7 +3,7 @@ import { MapContainer, TileLayer, useMap, Marker, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import "./MapView.css";
 import { useEffect, useRef, useState } from 'react';
-import { filterOutPlaces } from '../../utils/apis/turid';
+import { filterOutPlaces, isWithinRange } from '../../utils/apis/turid';
 
 function MapView() {
 
@@ -43,11 +43,16 @@ const ChangeView = ({ position }) => {
 
 const MapViewReact = ({ turidData }) => {
     const [position, setPosition] = useState([59.3793, 13.5036]);
+    const [lastPosition, setLastPosition] = useState(null);
 
     useEffect(() => {
         const positionTracker = navigator.geolocation.watchPosition(
             location => {
-                setPosition([location.coords.latitude, location.coords.longitude]);
+                const currentPosition = [location.coords.latitude, location.coords.longitude];
+                if (!lastPosition || !isWithinRange(lastPosition, currentPosition, 50)) {
+                    setPosition(currentPosition);
+                    setLastPosition(currentPosition);
+                }
             }, error => {
                 console.error("Error fetching user location", error);
             }, {
