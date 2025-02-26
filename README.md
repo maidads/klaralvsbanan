@@ -21,3 +21,18 @@ Klarälvsbanan är en webbaserad applikation som hjälper besökare och cykliste
   - Navigera till rutplaneraren.
   - Justera användarinställningar.
 
+---
+
+## 🔧 Teknologi & Verktyg
+Följande teknologier och bibliotek har använts i utvecklingen av Klarälvsbanan:
+
+| Teknologi            | Användning |
+|----------------------|-----------|
+| **React.js**        | Frontend-ramverk för applikationen |
+| **Leaflet.js**      | Karthantering & interaktiv navigering |
+| **OpenStreetMap**   | Källan för kartdata |
+| **Turid API**       | Databas med sevärdheter i Värmland |
+| **GeoJSON**         | Hantering av Klarälvsbanans cykelled |
+| **CSS (Flexbox & Grid)** | Styling & layout för responsiv design |
+| **React Hooks**     | Hantering av state och side-effects |
+| **JavaScript (ES6+)** | Funktionalitet & API-integration |
