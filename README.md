@@ -36,3 +36,12 @@ Följande teknologier och bibliotek har använts i utvecklingen av Klarälvsbana
 | **CSS (Flexbox & Grid)** | Styling & layout för responsiv design |
 | **React Hooks**     | Hantering av state och side-effects |
 | **JavaScript (ES6+)** | Funktionalitet & API-integration |
+
+---
+
+## 🎨 Design & Användarupplevelse
+
+- **Responsiv navbar** anpassar sig efter skärmstorlek.
+- **Sökvyn öppnas som en sidopanel på desktop & fullskärm på mobil.**
+- **Det gröna pappersrivet** ger en unik Värmland-känsla.
+- **CSS har anpassats** för att leden ska synas tydligt på kartan.
