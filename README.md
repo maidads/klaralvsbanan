@@ -45,3 +45,12 @@ Följande teknologier och bibliotek har använts i utvecklingen av Klarälvsbana
 - **Sökvyn öppnas som en sidopanel på desktop & fullskärm på mobil.**
 - **Det gröna pappersrivet** ger en unik Värmland-känsla.
 - **CSS har anpassats** för att leden ska synas tydligt på kartan.
+
+---
+
+## 🗺 Kartinställningar & Anpassningar
+
+- **Användaren kan zooma & panorera** i kartan med **Leaflet.js**.
+- **Sevärdheter markeras** med **ikoner & popups**.
+- **Klarälvsbanan visas som en grön rutt** med hjälp av **banan.geojson**.
+- **Kartläge kan växlas** mellan **standardkarta & satellitvy**.
