@@ -99,3 +99,28 @@ klaralvsbanan/
 - **`client/`** – Huvudmappen för frontend-applikationen.
 - **`package.json`** – Lista över beroenden och projektinställningar.
 - **`vite.config.js`** – Konfigurationsfil för Vite, som används för att bygga frontend.
+
+---
+
+## 🚀 Hur man kör applikationen
+
+Följ dessa steg för att starta **Klarälvsbanan** lokalt på din dator.
+
+### 1️⃣ **Klona projektet**
+Om du inte redan har klonat projektet, gör det med följande kommando:
+```sh
+git clone https://github.com/VisitVarmland/Klaralvsbanan.git
+cd Klaralvsbanan
+cd client
+```
+### 2️⃣ **Installera alla nödvändiga paket**
+Installera alla nödvändiga paket med npm install:
+```sh
+npm install
+```
+
+### 3️⃣ **Starta applikationen**
+För att starta applikationen i utvecklingsläge, kör:
+```sh
+npm run dev
+```
