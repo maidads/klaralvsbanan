@@ -1,37 +1,10 @@
-import leaflet from 'leaflet';
-import { MapContainer, TileLayer, useMap, Marker, Popup } from 'react-leaflet';
+import { MapContainer, TileLayer, useMap, Marker, Popup, GeoJSON } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import "./MapView.css";
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { filterOutPlaces, isWithinRange } from '../../utils/apis/turid';
-
-function MapView() {
-
-    const mapRef = useRef();
-
-    useEffect(() => {
-        if (!mapRef.current) {
-            mapRef.current = leaflet.map('map').setView([59.37843, 13.50846], 13);
-
-            leaflet
-            .tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                maxZoom: 19,
-                attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-            }).addTo(mapRef.current);
-        }
-
-        return () => {
-            if (mapRef.current) {
-                mapRef.current.remove();
-                mapRef.current = null;
-            }
-        };
-    }, []);
-
-    return (
-        <div id="map" style={{ height: '100vh' }}></div>
-    );
-}
+import geoJson from "../../assets/geojson/banan.geojson?raw";
+const trackPoints = JSON.parse(geoJson);
 
 const ChangeView = ({ position }) => {
     const map = useMap();
@@ -41,23 +14,25 @@ const ChangeView = ({ position }) => {
     return null
 }
 
-const MapViewReact = ({ turidData }) => {
+const MapView = ({ turidData }) => {
     const [position, setPosition] = useState([59.3793, 13.5036]);
+    const [mapPosition, setMapPosition] = useState([59.3793, 13.5036]);
     const [lastPosition, setLastPosition] = useState(null);
 
     useEffect(() => {
         const positionTracker = navigator.geolocation.watchPosition(
             location => {
                 const currentPosition = [location.coords.latitude, location.coords.longitude];
-                if (!lastPosition || !isWithinRange(lastPosition, currentPosition, 50)) {
-                    setPosition(currentPosition);
+                setPosition(currentPosition);
+                if (!isWithinRange(lastPosition, currentPosition, 50)) {
+                    setMapPosition(currentPosition);
                     setLastPosition(currentPosition);
                 }
             }, error => {
                 console.error("Error fetching user location", error);
             }, {
                 enableHighAccuracy: true,
-                timeout: 10000,
+                timeout: 1000,
                 maximumAge: 0
             }
         );
@@ -74,12 +49,13 @@ const MapViewReact = ({ turidData }) => {
 
     return (
         <div style={{position: "relative", height: "100vh", width: "100vw"}}>
-            <MapContainer center={position} zoom={13} style={{ height: '100%', width: '100%' }}>
-            <ChangeView position={position} />
+            <MapContainer center={mapPosition} zoom={13} style={{ height: '100%', width: '100%' }}>
+            <ChangeView position={mapPosition} />
             <TileLayer
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                 attribution="&copy; <a href='https://www.openstreetmap.org/copyright'>OpenStreetMap</a> contributors"
             />
+            {trackPoints && <GeoJSON data={trackPoints}/>}
             {places && places.map(place => (
                 place.latitude && place.longitude ? (
                     <Marker key={place.id} position={[place.latitude, place.longitude]}>
@@ -95,4 +71,4 @@ const MapViewReact = ({ turidData }) => {
     );
 };
 
-export default MapViewReact;
+export default MapView;
