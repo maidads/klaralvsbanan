@@ -1,0 +1,42 @@
+.nav__mobile {
+    display: none;
+}
+
+@media screen and (min-width: 0px) and (max-width: 450px) {
+    .nav__mobile {
+        display: flex;
+        justify-content: center;
+        background-image: url('../../assets/svg/pappersriv_mobile.svg');
+        background-repeat: no-repeat;
+        background-position: center;
+        width: 100%;
+        height: auto;
+        min-height: 74px;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        z-index: 1000;
+        margin: 0;
+        padding: 0;
+    }
+    
+    .nav__mobile-icons-group {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        width: 100%;
+        padding: 0 20px;
+    }
+    
+    .nav__mobile-icon {
+        width: 24px;
+        height: 24px;
+        margin-bottom: 15px;
+        transition: all 0.3s ease-in-out;
+    }
+
+    .nav__mobile-logo {
+        width: 150px;
+        height: 50px;
+        margin-bottom: 15px;
+    }}
