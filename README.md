@@ -9,10 +9,10 @@ Klarälvsbanan är en webbaserad applikation som hjälper besökare och cykliste
 - **Sevärdheter från Turid API** placeras på kartan.
 - **Klarälvsbanans led visas med GeoJSON-fil (`banan.geojson`).**
 
-### 🔹 Sökfunktion & UI
+### 🔹 Sökfunktion
 - **Sökvyn har en modern design** och anpassad för både mobil och desktop.
 - **Användare kan söka efter sevärdheter och platser** med data från Turid API.
-- **En mobilvänlig navbar med ett grönt pappersriv** visas längst ner på mobilen.
+
 
 ### 🔹 Inställningar & Anpassningar
 - **Menyknapp med inställningar** för att:
@@ -33,9 +33,9 @@ Följande teknologier och bibliotek har använts i utvecklingen av Klarälvsbana
 | **OpenStreetMap**   | Källan för kartdata |
 | **Turid API**       | Databas med sevärdheter i Värmland |
 | **GeoJSON**         | Hantering av Klarälvsbanans cykelled |
-| **CSS (Flexbox & Grid)** | Styling & layout för responsiv design |
+| **CSS** | Styling & layout för responsiv design |
 | **React Hooks**     | Hantering av state och side-effects |
-| **JavaScript (ES6+)** | Funktionalitet & API-integration |
+| **JavaScript** | Funktionalitet & API-integration |
 
 ---
 
