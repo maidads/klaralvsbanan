@@ -2,12 +2,13 @@ import { useEffect, useState } from 'react';
 import MapViewReact from "./components/MapView/MapView.jsx";
 import { getAllTuridData } from './utils/apis/turid.js';
 import SearchResult from "./components/SearchResult/SearchResult.jsx";
+import NavDesktop from './components/NavDesktop/NavDesktop'
+import NavMobile from './components/NavMobile/NavMobile'
 import './App.css';
 import logo from './assets/svg/logo.svg';
 
 function App() {
   const [turidData, setTuridData] = useState(null);
-  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
   const [activeOverlay, setActiveOverlay] = useState(null);
   const [showSearch, setShowSearch] = useState(false);
 
@@ -18,21 +19,6 @@ function App() {
     };
     getData();
   }, []);
-
-  useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
-
-    handleResize();
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
-  useEffect(() => {
-    console.log("Screen width:", window.innerWidth);
-    console.log("isMobile updated:", isMobile);
-  }, [isMobile]);
 
   return (
     <>
@@ -80,6 +66,9 @@ function App() {
         </section>
       </main>
       {showSearch && <SearchResult onClose={() => setShowSearch(false)} />}
+
+      <NavDesktop />
+      <NavMobile />
     </>
   );
 }

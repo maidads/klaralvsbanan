@@ -45,14 +45,18 @@ const MapViewReact = ({ turidData }) => {
     const [position, setPosition] = useState([59.3793, 13.5036]);
 
     useEffect(() => {
-        navigator.geolocation.getCurrentPosition(
-            (location) => {
+        const positionTracker = navigator.geolocation.watchPosition(
+            location => {
                 setPosition([location.coords.latitude, location.coords.longitude]);
-            },
-            (error) => {
-              console.error('Error fetching location', error);
+            }, error => {
+                console.error("Error fetching user location", error);
+            }, {
+                enableHighAccuracy: true,
+                timeout: 10000,
+                maximumAge: 0
             }
         );
+        return () => navigator.geolocation.clearWatch(positionTracker);
     }, []);
 
     const [places, setPlaces] = useState(null);
@@ -78,6 +82,9 @@ const MapViewReact = ({ turidData }) => {
                     </Marker>
                 ) : null
             ))}
+            <Marker position={position}>
+                <Popup>Du</Popup>
+            </Marker>
             </MapContainer>
         </div>
     );
