@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import MapViewReact from "./components/MapView/MapView.jsx";
 import { getAllTuridData } from './utils/apis/turid.js';
+import SearchResult from "./components/SearchResult/SearchResult.jsx";
 import './App.css';
 import logo from './assets/svg/logo.svg';
 
@@ -8,6 +9,7 @@ function App() {
   const [turidData, setTuridData] = useState(null);
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
   const [activeOverlay, setActiveOverlay] = useState(null);
+  const [showSearch, setShowSearch] = useState(false);
 
   useEffect(() => {
     const getData = async () => {
@@ -53,7 +55,7 @@ function App() {
             {isMobile ? (
               <>
                 <div className='logo-button-container-mobile'>
-                  <button>Sök</button>
+                  <button onClick={() => setShowSearch(true)}>Sök</button>
                   <img className='logo' src={logo} alt="logo" />
                   <button>Route</button>
                 </div>
@@ -65,7 +67,7 @@ function App() {
                     <img className='logo' src={logo} alt="logo" />
                   </div>
                   <div className='footer-buttons-container'>
-                    <button>Sök</button>
+                    <button onClick={() => setShowSearch(true)}>Sök</button>
                     <button>Filter</button>
                     <button>Meny</button>
                     <button>Dela</button>
@@ -77,6 +79,7 @@ function App() {
           </section>
         </section>
       </main>
+      {showSearch && <SearchResult onClose={() => setShowSearch(false)} />}
     </>
   );
 }
