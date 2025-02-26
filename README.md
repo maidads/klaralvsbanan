@@ -3,18 +3,18 @@
 Klarälvsbanan är en webbaserad applikation som hjälper besökare och cyklister att navigera och upptäcka sevärdheter längs Klarälvsbanan. Applikationen är integrerad med **Turid API**, **Leaflet/OpenStreetMap** och innehåller en responsiv design för både desktop och mobil.
 
 ## 📌 Funktionalitet
-### 🔹 Karta & Navigation
+### Karta & Navigation
 - **Leaflet/OpenStreetMap** används för att visa kartan och hantera sevärdheter.
 - **Användarens position (GPS, live-location)** visas på kartan i realtid.
 - **Sevärdheter från Turid API** placeras på kartan.
 - **Klarälvsbanans led visas med GeoJSON-fil (`banan.geojson`).**
 
-### 🔹 Sökfunktion
+### Sökfunktion
 - **Sökvyn har en modern design** och anpassad för både mobil och desktop.
 - **Användare kan söka efter sevärdheter och platser** med data från Turid API.
 
 
-### 🔹 Inställningar & Anpassningar
+### Inställningar & Anpassningar
 - **Menyknapp med inställningar** för att:
   - Växla språk.
   - Ändra kartläge (exempel: satellit vs standardkartor).
@@ -54,3 +54,48 @@ Följande teknologier och bibliotek har använts i utvecklingen av Klarälvsbana
 - **Sevärdheter markeras** med **ikoner & popups**.
 - **Klarälvsbanan visas som en grön rutt** med hjälp av **banan.geojson**.
 - **Kartläge kan växlas** mellan **standardkarta & satellitvy**.
+
+---
+
+## Kodstruktur
+
+Projektet är organiserat på ett modulärt sätt för att göra koden lätt att förstå och underhålla.
+
+
+### Mappstruktur
+```plaintext
+klaralvsbanan/
+│── client/                  # Frontend-projektet
+│   ├── node_modules/        # Installerade beroenden (ignoreras i Git)
+│   ├── src/                 # Huvudkoden för applikationen
+│   │   ├── assets/          # Bilder, ikoner och GeoJSON-data
+│   │   │   ├── geojson/     # Klarälvsbanans rutt (banan.geojson)
+│   │   │   ├── icons/       # Ikoner för UI
+│   │   │   ├── svg/         # SVG-grafik (inklusive pappersrivet)
+│   │   ├── components/      # Återanvändbara React-komponenter
+│   │   │   ├── SearchResult # Sökfunktionen och dess UI
+│   │   │   ├── NavMobile    # Mobilanpassad navigationsmeny
+│   │   │   ├── PlaceCard    # UI-kort för sevärdheter
+│   │   │   ├── MapView      # Karthantering med Leaflet
+│   │   ├── state/           # Global state-hantering
+│   │   ├── utils/           # Hjälpfunktioner & API-anrop
+│   │   │   ├── apis/        # API-anrop (t.ex. Turid API)
+│   │   │   ├── functions/   # Små funktioner för kartlogik
+│   ├── index.html           # Grundstrukturen för webbsidan
+│   ├── vite.config.js       # Konfiguration för Vite (bygger frontend)
+│   ├── package.json         # Projektets beroenden och skript
+│   ├── README.md            # Dokumentation (du läser den just nu)
+
+```
+---
+
+### **Beskrivning av viktiga mappar**
+- **`src/assets/`** – Innehåller bilder, SVG-filer och GeoJSON-data.
+- **`src/components/`** – Alla React-komponenter för UI och kartan.
+- **`src/state/`** – Hanterar applikationens globala state.
+- **`src/utils/`** – Innehåller hjälpfunktioner, API-anrop och logik för kartan.
+  - **`apis/`** – API-anrop (t.ex. Turid API).
+  - **`functions/`** – Specifika funktioner för kartinteraktion (zoom, ruttplanering, språköversättning).
+- **`client/`** – Huvudmappen för frontend-applikationen.
+- **`package.json`** – Lista över beroenden och projektinställningar.
+- **`vite.config.js`** – Konfigurationsfil för Vite, som används för att bygga frontend.
