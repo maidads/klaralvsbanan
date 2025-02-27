@@ -2,6 +2,8 @@
 
 Klarälvsbanan är en webbaserad applikation som hjälper besökare och cyklister att navigera och upptäcka sevärdheter längs Klarälvsbanan. Applikationen är integrerad med **Turid API**, **Leaflet/OpenStreetMap** och innehåller en responsiv design för både desktop och mobil.
 
+![Hela kartan](<Skärmavbild 2025-02-27 kl. 07.45.29.png>)
+
 ## 📌 Funktionalitet
 ### Karta & Navigation
 - **Leaflet/OpenStreetMap** används för att visa kartan och hantera sevärdheter.
