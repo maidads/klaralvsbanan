@@ -11,6 +11,13 @@
     z-index: 1000;
 }
 
+@media (max-width: 768px) {
+    .zoom-container {
+        right: 40px;
+        bottom: 120px;
+    }
+}
+
 .zoom-img {
     width: 100%;
     height: 100%;
