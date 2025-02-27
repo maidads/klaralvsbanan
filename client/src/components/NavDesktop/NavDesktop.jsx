@@ -14,7 +14,9 @@ function NavDesktop() {
     return (
         <>
             <nav className="nav__desktop">
-                <img className="nav__desktop-logo" src={logo} alt="Logo" />
+                <div className="nav__desktop-logo-container">
+                    <img className="nav__desktop-logo" src={logo} alt="Logo" />
+                </div>
                 <div className="nav__desktop-icons-group">
                     <div className="nav__desktop-item">
                         <img 
@@ -47,5 +49,4 @@ function NavDesktop() {
         </>
     );
 }
-
 export default NavDesktop;
