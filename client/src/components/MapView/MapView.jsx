@@ -1,10 +1,12 @@
 import leaflet from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import { useEffect, useRef, useState } from 'react';
-import { MapContainer, Marker, Popup, TileLayer, useMap } from 'react-leaflet';
+import { MapContainer, Marker, Popup, TileLayer, useMap, GeoJSON } from 'react-leaflet';
 import { filterOutPlaces } from '../../utils/apis/turid';
 import "./MapView.css";
 import ZoomControls from "./ZoomControls";
+import geoJson from "../../assets/geojson/banan.geojson?raw";
+const trackPoints = JSON.parse(geoJson);
 
 function MapView() {
 
@@ -46,7 +48,7 @@ const MapViewReact = ({ turidData }) => {
     const [position, setPosition] = useState([59.3793, 13.5036]);
 
     useEffect(() => {
-        const positionTracker = navigator.geolocation.watchPosition(
+        const positionTracker = navigator.geolocation.getCurrentPosition(
             location => {
                 setPosition([location.coords.latitude, location.coords.longitude]);
             }, error => {
@@ -68,6 +70,17 @@ const MapViewReact = ({ turidData }) => {
         }
     }, [turidData]);
 
+    const pathStyle = {
+        color: "purple",
+        weight: 4,
+        dashArray: "6,5",
+    }
+
+    const whiteStyle = {
+        color: "white",
+        weight: 8,
+    }
+
     return (
         <div className="map-container" style={{ position: "relative", height: "100vh", width: "100vw" }}>
             <MapContainer 
@@ -81,6 +94,9 @@ const MapViewReact = ({ turidData }) => {
                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                     attribution="&copy; <a href='https://www.openstreetmap.org/copyright'>OpenStreetMap</a> contributors"
                 />
+
+                {trackPoints && <GeoJSON data={trackPoints} style={whiteStyle}/>}
+                {trackPoints && <GeoJSON data={trackPoints} style={pathStyle}/>}
                 
                 {/* 🔹 Rendera alla platser från Turid API */}
                 {places && places.map(place => (
