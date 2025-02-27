@@ -1,9 +1,10 @@
 import leaflet from 'leaflet';
-import { MapContainer, TileLayer, useMap, Marker, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
-import "./MapView.css";
 import { useEffect, useRef, useState } from 'react';
+import { MapContainer, Marker, Popup, TileLayer, useMap } from 'react-leaflet';
 import { filterOutPlaces } from '../../utils/apis/turid';
+import "./MapView.css";
+import ZoomControls from "./ZoomControls";
 
 function MapView() {
 
@@ -52,7 +53,7 @@ const MapViewReact = ({ turidData }) => {
                 console.error("Error fetching user location", error);
             }, {
                 enableHighAccuracy: true,
-                timeout: 10000,
+                timeout: 30000,
                 maximumAge: 0
             }
         );
@@ -68,23 +69,35 @@ const MapViewReact = ({ turidData }) => {
     }, [turidData]);
 
     return (
-        <div style={{position: "relative", height: "100vh", width: "100vw"}}>
-            <MapContainer center={position} zoom={13} style={{ height: '100%', width: '100%' }}>
-            <ChangeView position={position} />
-            <TileLayer
-                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                attribution="&copy; <a href='https://www.openstreetmap.org/copyright'>OpenStreetMap</a> contributors"
-            />
-            {places && places.map(place => (
-                place.latitude && place.longitude ? (
-                    <Marker key={place.id} position={[place.latitude, place.longitude]}>
-                        <Popup>{place.title}</Popup>
-                    </Marker>
-                ) : null
-            ))}
-            <Marker position={position}>
-                <Popup>Du</Popup>
-            </Marker>
+        <div className="map-container" style={{ position: "relative", height: "100vh", width: "100vw" }}>
+            <MapContainer 
+                center={position} 
+                zoom={13} 
+                zoomControl={false}  // 🔹 Tar bort Leaflets standardzoom
+                style={{ height: "100%", width: "100%" }}
+            >
+                <ChangeView position={position} />
+                <TileLayer
+                    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                    attribution="&copy; <a href='https://www.openstreetmap.org/copyright'>OpenStreetMap</a> contributors"
+                />
+                
+                {/* 🔹 Rendera alla platser från Turid API */}
+                {places && places.map(place => (
+                    place.latitude && place.longitude ? (
+                        <Marker key={place.id} position={[place.latitude, place.longitude]}>
+                            <Popup>{place.title}</Popup>
+                        </Marker>
+                    ) : null
+                ))}
+    
+                {/* 🔹 Markör för användarens position */}
+                <Marker position={position}>
+                    <Popup>Du</Popup>
+                </Marker>
+    
+                {/* 🔹 Anpassade zoomknappar */}
+                <ZoomControls />
             </MapContainer>
         </div>
     );
