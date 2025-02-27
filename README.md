@@ -79,6 +79,7 @@ klaralvsbanan/
 │   │   │   ├── NavMobile    # Mobilanpassad navigationsmeny
 │   │   │   ├── PlaceCard    # UI-kort för sevärdheter
 │   │   │   ├── MapView      # Karthantering med Leaflet
+│   │   │   ├── ZoomControl  # Zoomhantering
 │   │   ├── state/           # Global state-hantering
 │   │   ├── utils/           # Hjälpfunktioner & API-anrop
 │   │   │   ├── apis/        # API-anrop (t.ex. Turid API)
