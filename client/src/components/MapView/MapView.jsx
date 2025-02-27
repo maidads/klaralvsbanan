@@ -53,7 +53,7 @@ const MapViewReact = ({ turidData }) => {
                 console.error("Error fetching user location", error);
             }, {
                 enableHighAccuracy: true,
-                timeout: 10000,
+                timeout: 30000,
                 maximumAge: 0
             }
         );
