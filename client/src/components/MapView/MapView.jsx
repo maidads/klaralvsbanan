@@ -69,21 +69,34 @@ const MapViewReact = ({ turidData }) => {
     }, [turidData]);
 
     return (
-        <div className="map-container">
+        <div className="map-container" style={{ position: "relative", height: "100vh", width: "100vw" }}>
             <MapContainer 
                 center={position} 
                 zoom={13} 
-                zoomControl={false}
-                style={{ height: "100vh", width: "100vw" }}
+                zoomControl={false}  // 🔹 Tar bort Leaflets standardzoom
+                style={{ height: "100%", width: "100%" }}
             >
                 <ChangeView position={position} />
                 <TileLayer
                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                     attribution="&copy; <a href='https://www.openstreetmap.org/copyright'>OpenStreetMap</a> contributors"
                 />
+                
+                {/* 🔹 Rendera alla platser från Turid API */}
+                {places && places.map(place => (
+                    place.latitude && place.longitude ? (
+                        <Marker key={place.id} position={[place.latitude, place.longitude]}>
+                            <Popup>{place.title}</Popup>
+                        </Marker>
+                    ) : null
+                ))}
+    
+                {/* 🔹 Markör för användarens position */}
                 <Marker position={position}>
-                    <Popup>Din position</Popup>
+                    <Popup>Du</Popup>
                 </Marker>
+    
+                {/* 🔹 Anpassade zoomknappar */}
                 <ZoomControls />
             </MapContainer>
         </div>
