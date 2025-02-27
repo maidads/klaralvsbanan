@@ -4,6 +4,7 @@ import { getAllTuridData } from './utils/apis/turid.js';
 import NavDesktop from './components/NavDesktop/NavDesktop';
 import NavMobile from './components/NavMobile/NavMobile';
 import './App.css';
+import MapMenu from './components/MapMenu/MapMenu.jsx';
 
 function App() {
   const [turidData, setTuridData] = useState(null);
@@ -21,6 +22,7 @@ function App() {
     <>
       <main className="map-container">
           <MapViewReact turidData={turidData} />
+          <nav alt='settings'> <MapMenu /></nav>
           <aside className="map-buttons">
             <button className='enlarge-map-btn'></button>
             <button className='center-btn'></button>
