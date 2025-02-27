@@ -32,7 +32,7 @@ const MapView = ({ turidData }) => {
                 console.error("Error fetching user location", error);
             }, {
                 enableHighAccuracy: true,
-                timeout: 1000,
+                timeout: 30000,
                 maximumAge: 0
             }
         );
@@ -47,6 +47,17 @@ const MapView = ({ turidData }) => {
         }
     }, [turidData]);
 
+    const pathStyle = {
+        color: "purple",
+        weight: 4,
+        dashArray: "6,5",
+    }
+
+    const whiteStyle = {
+        color: "white",
+        weight: 8,
+    }
+
     return (
         <div style={{position: "relative", height: "100vh", width: "100vw"}}>
             <MapContainer center={mapPosition} zoom={13} style={{ height: '100%', width: '100%' }}>
@@ -55,7 +66,8 @@ const MapView = ({ turidData }) => {
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                 attribution="&copy; <a href='https://www.openstreetmap.org/copyright'>OpenStreetMap</a> contributors"
             />
-            {trackPoints && <GeoJSON data={trackPoints}/>}
+            {trackPoints && <GeoJSON data={trackPoints} style={whiteStyle}/>}
+            {trackPoints && <GeoJSON data={trackPoints} style={pathStyle}/>}
             {places && places.map(place => (
                 place.latitude && place.longitude ? (
                     <Marker key={place.id} position={[place.latitude, place.longitude]}>
