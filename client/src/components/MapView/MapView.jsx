@@ -1,9 +1,10 @@
 import leaflet from 'leaflet';
-import { MapContainer, TileLayer, useMap, Marker, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
-import "./MapView.css";
 import { useEffect, useRef, useState } from 'react';
+import { MapContainer, Marker, Popup, TileLayer, useMap } from 'react-leaflet';
 import { filterOutPlaces } from '../../utils/apis/turid';
+import "./MapView.css";
+import ZoomControls from "./ZoomControls";
 
 function MapView() {
 
@@ -68,23 +69,22 @@ const MapViewReact = ({ turidData }) => {
     }, [turidData]);
 
     return (
-        <div style={{position: "relative", height: "100vh", width: "100vw"}}>
-            <MapContainer center={position} zoom={13} style={{ height: '100%', width: '100%' }}>
-            <ChangeView position={position} />
-            <TileLayer
-                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                attribution="&copy; <a href='https://www.openstreetmap.org/copyright'>OpenStreetMap</a> contributors"
-            />
-            {places && places.map(place => (
-                place.latitude && place.longitude ? (
-                    <Marker key={place.id} position={[place.latitude, place.longitude]}>
-                        <Popup>{place.title}</Popup>
-                    </Marker>
-                ) : null
-            ))}
-            <Marker position={position}>
-                <Popup>Du</Popup>
-            </Marker>
+        <div className="map-container">
+            <MapContainer 
+                center={position} 
+                zoom={13} 
+                zoomControl={false}
+                style={{ height: "100vh", width: "100vw" }}
+            >
+                <ChangeView position={position} />
+                <TileLayer
+                    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                    attribution="&copy; <a href='https://www.openstreetmap.org/copyright'>OpenStreetMap</a> contributors"
+                />
+                <Marker position={position}>
+                    <Popup>Din position</Popup>
+                </Marker>
+                <ZoomControls />
             </MapContainer>
         </div>
     );
