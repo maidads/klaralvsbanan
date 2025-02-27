@@ -39,7 +39,8 @@
     }
 
     .nav__mobile-text {
-        font-size: 12px;
+        font-family: 'Noto Serif', serif;
+        font-size: 8px;
         color: #75CB66;
         opacity: 0.8;
         text-align: center;
