@@ -1,7 +1,3 @@
-.nav__mobile {
-    display: none;
-}
-
 @media screen and (min-width: 0px) and (max-width: 450px) {
     .nav__mobile {
         display: flex;
@@ -19,7 +15,7 @@
         margin: 0;
         padding: 0;
     }
-    
+
     .nav__mobile-icons-group {
         display: flex;
         align-items: flex-end;
@@ -27,16 +23,32 @@
         width: 100%;
         padding: 0 20px;
     }
-    
+
+    .nav__mobile-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
     .nav__mobile-icon {
         width: 24px;
         height: 24px;
-        margin-bottom: 15px;
+        margin-bottom: 2px;
         transition: all 0.3s ease-in-out;
+    }
+
+    .nav__mobile-text {
+        font-family: 'Noto Serif', serif;
+        font-size: 8px;
+        color: #75CB66;
+        opacity: 0.8;
+        text-align: center;
     }
 
     .nav__mobile-logo {
         width: 150px;
         height: 50px;
         margin-bottom: 15px;
-    }}
+    }
+}
