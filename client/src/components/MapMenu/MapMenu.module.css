@@ -1,0 +1,116 @@
+.mapMenu {
+  position: fixed;
+  top: 2rem;
+  right: 1rem;
+  display: inline-block;
+  z-index: 1000; /* Ensure it is above other elements */
+}
+
+.mapMenu__menuButton {
+  background-color: white;
+  color: black;
+  margin: 0;
+  padding: 5px 5px 0px 5px ;
+  font-size: 16px;
+  border-color: hsla(0, 0%, 0%, 0.15);
+  border-radius: 4px;
+  border-width: 1px;
+  cursor: pointer;
+}
+
+
+.mapMenu__dropdownMenu {
+  display: block;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 20vw;
+  box-shadow: 0px 2px 8px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  border-radius: 4px;
+  right: 0%;
+  border-color: hsla(0, 0%, 0%, 0.15);
+}
+
+.mapMenu__dropdownItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  cursor: pointer;
+}
+
+.mapMenu__dropdownItem:hover {
+  background-color: #e5e5e5;
+}
+
+.mapMenu__dropdownItem:hover .mapMenu__submenu {
+  display: block;
+}
+
+.mapMenu__submenu {
+  display: none;
+  position: absolute;
+  right: 100%;
+  top: 0%;
+  background-color: #ffffff;
+  min-width: 35vw;
+  box-shadow: 0px 2px 8px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  border-radius: 4px;
+  border-color: hsla(0, 0%, 0%, 0.15);
+  display: flex;
+  flex-direction: column;
+}
+
+.mapMenu__submenu label {
+  display: block;
+  padding: 8px 16px;
+  cursor: pointer;  
+}
+
+.mapMenu__dropdownItem--language {
+  position: relative;
+}
+
+.mapMenu__dropdownItem--mapLayer {
+  position: relative;
+}
+
+.mapMenu__routePlannerButton {
+  color: white;
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+.mapMenu__routePlanner {
+  padding: 12px 16px;
+  border-top: 1px solid #ddd;
+}
+
+.mapMenu__title {
+  padding: 12px 16px;
+  font-weight: bold;
+  border-bottom: 1px solid #ddd;
+}
+
+.mapMenu__itemContent {
+  display: flex;
+  align-items: center;
+}
+
+.mapMenu__icon {
+  margin-right: 8px;
+}
+
+.mapMenu__arrow {
+  margin-left: auto;
+}
+
+@media (min-width: 1024px) {
+  .mapMenu__submenu {
+    min-width: 10vw;
+  }
+}

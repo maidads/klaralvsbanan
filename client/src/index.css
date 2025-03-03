@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+    /* Primary Colors */
+    --primary-color-green: #004337;
+    --primary-color-blue: #002B3F;
+    --primary-color-pink: #6C0634;
+
+    /* Contrast Colors */
+    --contrast-color-primary-1-1: #006660; /* Dark Cyan */
+    --contrast-color-primary-1-2: #00A080; /* Sea Green */
+    --contrast-color-primary-1-3: #76CD67; /* Mantis */
+
+    --contrast-color-primary-2-1: #005B78; /* Dark Cerulean */
+    --contrast-color-primary-2-2: #0495A2; /* Medium Turquoise */
+    --contrast-color-primary-2-3: #70DAEC; /* Sky Blue */
+
+    --contrast-color-primary-3-1: #FF6669; /* Radical Red */
+    --contrast-color-primary-3-2: #FFA4A9; /* Carnation Pink */
+    --contrast-color-primary-3-3: #FFCECD; /* Pink Lace */
+
+    /* Special Colors */
+    --special-color-yellow: #ECC753;
+    --special-color-orange: #FA8523;
+
+    /* Neutral Colors */
+    --neutral-color-white: #FFFFFF;
+    --neutral-color-black: #000000;
+    --neutral-color-gray-1: #F5F5F5;
+    --neutral-color-gray-2: #E0E0E0;
+    --neutral-color-gray-3: #BDBDBD;
+    --neutral-color-gray-4: #828282;
+    --neutral-color-gray-5: #4F4F4F;
+    --neutral-color-gray-6: #333333;
+
+    /* Responsive Font Sizes (Min, preffered, max) */
+    --main-heading-big: clamp(2rem, 4vw, 3rem);
+    --main-heading-small: clamp(1.8rem, 3.5vw, 2.6rem);
+    --under-heading-big: clamp(1.5rem, 3vw, 1.8rem);
+    --under-heading-small: clamp(1.25rem, 2.5vw, 1.5rem);
+    --body-text: clamp(1rem, 2vw, 1rem);
+}
+
+/* Body CSS */
+body {
+    margin: 0;
+    padding: 0;
+    line-height: 1.5;
+    font-weight: normal;
+    font-family: "Noto Serif", serif;
+    font-size: var(--body-text);
+    box-sizing: border-box;
+}
+
+/* Utility Classes */
+.font-regular { font-weight: normal; }
+.font-bold { font-weight: bold; }
+.font-italic { font-style: italic; }
